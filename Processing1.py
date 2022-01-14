@@ -91,7 +91,7 @@ if biggestCon.size != 0:
                 temp = boxes[i]
                 boxes[i] = boxes[j]
                 boxes[j] = temp
-
+    #yorum satiri 
     kutu = []
     #Soru sayısı kadar değeri kutu listesine aktarma.
     for i in range(0,len(ans)):
