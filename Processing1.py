@@ -3,7 +3,7 @@ import numpy as np
 import functions
 
 #########################################
-img = cv2.imread("hatali.jpeg")
+img = cv2.imread("123.jpeg")
 widthImg=800
 heightImg=640
 questions = 10
