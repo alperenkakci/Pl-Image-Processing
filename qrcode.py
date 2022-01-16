@@ -28,9 +28,3 @@ print(testsayi)
 
 
 
-
-
-
-#cv2.imshow("Windows",qr)
-#cv2.waitKey(0)
-
