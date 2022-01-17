@@ -5,8 +5,8 @@ import qrcode
 
 
 #########################################
-
 img = cv2.imread("img2.jpg")
+img = cv2.imread("hatali.jpeg")
 widthImg=800
 heightImg=640
 #questions = 10
@@ -82,30 +82,134 @@ if biggestCon.size != 0:
         #print(myIndexVal[0])
         #print(myPixelVaL[x])
         myIndex.append(myIndexVal[0][0])
-        print(myIndexVal[0])
-    #print(myPixelVaL)
-    #Cevaplarla Karşılaştırma
-    grading=[]
 
+    kutu0 = []
+    for i in range(0,5):
+        kutu0.append(cv2.countNonZero(boxes[i]))
+
+    for i in range(0,len(kutu0)):
+        for j in range(i+1,len(kutu0)):
+            if (cv2.countNonZero(boxes[i]) < cv2.countNonZero(boxes[j])):
+                temp = kutu0[i]
+                kutu0[i] = kutu0[j]
+                kutu0[j] = temp
+
+    kutu1 = []
+    for i in range(5,10):
+        kutu1.append(cv2.countNonZero(boxes[i]))
+
+    for i in range(0,len(kutu1)):
+        for j in range(i+1,len(kutu1)):
+            if (kutu1[i]<kutu1[j]):
+                temp = kutu1[i]
+                kutu1[i] = kutu1[j]
+                kutu1[j] = temp
+
+    kutu2 = []
+    for i in range(10,15):
+        kutu2.append(cv2.countNonZero(boxes[i]))
+
+    for i in range(0, len(kutu0)):
+        for j in range(i + 1, len(kutu0)):
+            if (kutu2[i] < kutu2[j]):
+                temp = kutu2[i]
+                kutu2[i] = kutu2[j]
+                kutu2[j] = temp
+
+    kutu3 = []
+    for i in range(15, 20):
+        kutu3.append(cv2.countNonZero(boxes[i]))
+
+    for i in range(0, len(kutu0)):
+        for j in range(i + 1, len(kutu0)):
+            if (kutu3[i] < kutu3[j]):
+                temp = kutu3[i]
+                kutu3[i] = kutu3[j]
+                kutu3[j] = temp
+
+    kutu4 = []
+    for i in range(20, 25):
+        kutu4.append(cv2.countNonZero(boxes[i]))
+
+    for i in range(0, len(kutu0)):
+        for j in range(i + 1, len(kutu0)):
+            if (kutu4[i] < kutu4[j]):
+                temp = kutu4[i]
+                kutu4[i] = kutu4[j]
+                kutu4[j] = temp
+
+    kutu5 = []
+    for i in range(25, 30):
+        kutu5.append(cv2.countNonZero(boxes[i]))
+
+    for i in range(0, len(kutu0)):
+        for j in range(i + 1, len(kutu0)):
+            if (kutu5[i] < kutu5[j]):
+                temp = kutu5[i]
+                kutu5[i] = kutu5[j]
+                kutu5[j] = temp
+
+    kutu6 = []
+    for i in range(30, 35):
+        kutu6.append(cv2.countNonZero(boxes[i]))
+
+    for i in range(0, len(kutu0)):
+        for j in range(i + 1, len(kutu0)):
+            if (kutu6[i] < kutu6[j]):
+                temp = kutu6[i]
+                kutu6[i] = kutu6[j]
+                kutu6[j] = temp
+
+    kutu7 = []
+    for i in range(35, 40):
+        kutu7.append(cv2.countNonZero(boxes[i]))
+
+    for i in range(0, len(kutu0)):
+        for j in range(i + 1, len(kutu0)):
+            if (kutu7[i] < kutu7[j]):
+                temp = kutu7[i]
+                kutu7[i] = kutu7[j]
+                kutu7[j] = temp
+
+    kutu8 = []
+    for i in range(40, 45):
+        kutu8.append(cv2.countNonZero(boxes[i]))
+
+    for i in range(0, len(kutu0)):
+        for j in range(i + 1, len(kutu0)):
+            if (kutu8[i] < kutu8[j]):
+                temp = kutu8[i]
+                kutu8[i] = kutu8[j]
+                kutu8[j] = temp
+
+    kutu9 = []
+    for i in range(45, 50):
+        kutu9.append(cv2.countNonZero(boxes[i]))
+
+    for i in range(0, len(kutu0)):
+        for j in range(i + 1, len(kutu0)):
+            if (kutu9[i] < kutu9[j]):
+                temp = kutu9[i]
+                kutu9[i] = kutu9[j]
+                kutu9[j] = temp
+
+    kutu = []
+    kutu.append(kutu0[0])
+    kutu.append(kutu1[0])
+    kutu.append(kutu2[0])
+    kutu.append(kutu3[0])
+    kutu.append(kutu4[0])
+    kutu.append(kutu5[0])
+    kutu.append(kutu6[0])
+    kutu.append(kutu7[0])
+    kutu.append(kutu8[0])
+    kutu.append(kutu9[0])
+
+    grading=[]
     aa =[]
     for i in range(0,(questions*5)): ##########################
         aa.append(cv2.countNonZero(boxes[i]))
         i=+i
-
-    #Çoktan aza sıralam
-    for i in range(0, len(boxes)):
-        for j in range(i+1, len(boxes)):
-            if (cv2.countNonZero(boxes[i]) < cv2.countNonZero(boxes[j])):
-                temp = boxes[i]
-                boxes[i] = boxes[j]
-                boxes[j] = temp
-    #yorum satiri 
-    kutu = []
-    #Soru sayısı kadar değeri kutu listesine aktarma.
-    for i in range(0,len(ans)):
-        kutu.append(cv2.countNonZero(boxes[i]))
-        #print(kutu[i])
-    print("-----------------")
 
     total=0
     #kutu'daki değerleri toplama
@@ -117,7 +221,7 @@ if biggestCon.size != 0:
 
     hata0 = []
     for i in range(0,len(aa)):
-        if aa[i] > abc-300:
+        if aa[i] > abc-500:
             hata0.append(1)
         i=+i
 
