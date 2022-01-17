@@ -1,5 +1,8 @@
 import cv2
 import numpy as np
+import qrcode
+a = len(qrcode.ans)
+
 
 ## TO STACK ALL THE IMAGES IN ONE WINDOW
 def stackImages(imgArray, scale, lables=[]):

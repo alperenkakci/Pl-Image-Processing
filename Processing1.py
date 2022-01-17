@@ -1,14 +1,19 @@
 import cv2
 import numpy as np
 import functions
+import qrcode
+
 
 #########################################
-img = cv2.imread("img1.jpeg")
+
+img = cv2.imread("img2.jpg")
 widthImg=800
 heightImg=640
-questions = 10
+#questions = 10
 choices = 5
-ans= [3,1,4,0,2,0,3,4,1,2]
+#ans= [3,1,4,0,2,0,3,4,1,2]
+ans = qrcode.ans
+questions = len(ans)
 temp=0
 i=0
 j=0
@@ -49,6 +54,9 @@ if biggestCon.size != 0:
     imgThreshold = cv2.adaptiveThreshold(imgCropped,255,cv2.ADAPTIVE_THRESH_MEAN_C,cv2.THRESH_BINARY_INV,155,11)
 
     boxes = functions.split(imgThreshold)
+    ahmet=[]
+    for i in range(0,(len(ans)*5)):
+        ahmet.append(boxes[i])
 
     #cv2.imshow("a",imgThreshold)
 
@@ -59,7 +67,7 @@ if biggestCon.size != 0:
     #cv2.imshow("asd",imgContours)
 
     #Şıklardaki siyah olmayan piksellerin değerlerini alma
-    for image in boxes:
+    for image in ahmet:
         totalPixels = cv2.countNonZero(image)
         myPixelVaL[countRow][countCol] = totalPixels
         countCol+=1
@@ -80,7 +88,7 @@ if biggestCon.size != 0:
     grading=[]
 
     aa =[]
-    for i in range(0,50):
+    for i in range(0,(questions*5)): ##########################
         aa.append(cv2.countNonZero(boxes[i]))
         i=+i
 
