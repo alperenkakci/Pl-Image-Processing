@@ -1,6 +1,10 @@
 import cv2
 import numpy as np
 import qrcode
+import pyqrcode
+import png
+from pyqrcode import QRCode
+
 a = len(qrcode.ans)
 
 
@@ -88,3 +92,5 @@ def split(img):
         for box in cols:
             boxes.append(box)
     return boxes
+
+
