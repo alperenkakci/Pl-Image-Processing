@@ -30,7 +30,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.qrcodegenerator">
+  <component name="RunManager" selected="Python.Processing1">
     <configuration name="Processing1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Pl-Image-Processing" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -138,8 +138,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.qrcodegenerator" />
         <item itemvalue="Python.Processing1" />
+        <item itemvalue="Python.qrcodegenerator" />
         <item itemvalue="Python.qrcode (1)" />
         <item itemvalue="Python.functions" />
         <item itemvalue="Python.qrcode" />

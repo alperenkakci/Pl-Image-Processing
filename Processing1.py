@@ -6,7 +6,6 @@ import qrcode
 
 #########################################
 img = cv2.imread("img2.jpg")
-img = cv2.imread("hatali.jpeg")
 widthImg=800
 heightImg=640
 #questions = 10
@@ -215,13 +214,13 @@ if biggestCon.size != 0:
     #kutu'daki değerleri toplama
     for i in range(0, len(kutu)):
         total = total + kutu[i]
-        abc = total/len(kutu)
+        averagePixelRate = total/len(kutu)
 
-    print(abc)
+
 
     hata0 = []
     for i in range(0,len(aa)):
-        if aa[i] > abc-500:
+        if aa[i] > averagePixelRate-500:
             hata0.append(1)
         i=+i
 
@@ -236,7 +235,7 @@ if biggestCon.size != 0:
                    " Lütfen düzeltip tekrar deneyiniz.")
             cv2.waitKey(0)
         else:
-            if kutu[x] < abc-1200:
+            if kutu[x] < averagePixelRate-1200:
                 blank.append(1)
             elif ans[x] == myIndex[x]:
                 grading.append(1)
